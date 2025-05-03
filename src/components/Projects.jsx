@@ -25,12 +25,11 @@ function Projects() {
 
         {/* Projekt 2 */}
         <div className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow">
-          <h3 className="text-xl font-semibold dark:text-white">Fejldiagnose-app til elektrikere</h3>
+          <h3 className="text-xl font-semibold dark:text-white">Ruteoptimering for udskiftning af elmålere</h3>
           <p className="text-gray-800 dark:text-gray-200">
-            En mobilapplikation designet til elektrikere, der kan indtaste symptomer på fejl, hvorefter appen foreslår mulige løsninger. Planlægger integration af AI for mere præcise anbefalinger og automatisk generering af kvalitetssikringsdokumenter.
-          </p>
+          Jeg udviklede et Python-script, der anvendte nearest neighbor-algoritmen til at beregne den hurtigste rute mellem de 250 adresser, der skulle besøges. Ved hjælp af Leaflet, et populært JavaScript-bibliotek til kort, visualiserede jeg både adresserne og ruten på et interaktivt kort, hvilket gav et klart og letforståeligt billede af hele ruten.          </p>
           <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/bobor16" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
+            <a href="https://github.com/bobor16/route-optimation" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
               <FaGithub size={20} />
               GitHub
             </a>
@@ -48,7 +47,7 @@ function Projects() {
             Mit personlige CV og portfolio bygget som en moderne, responsiv webapp med dark/light mode, Tailwind CSS og React.
           </p>
           <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/bobor16" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
+            <a href="https://github.com/bobor16/mit-cv" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
               <FaGithub size={20} />
               GitHub
             </a>

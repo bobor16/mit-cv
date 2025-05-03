@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaLightbulb } from "react-icons/fa";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
@@ -12,14 +13,25 @@ function Header() {
   }, [darkMode]);
 
   return (
-    <header className="flex justify-between items-center my-8">
-      <h1 className="text-4xl font-bold text-gray-800 dark:text-white">Borgar Bordoy</h1>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg shadow text-sm"
-      >
-        {darkMode ? "☀️ Light" : "🌙 Dark"}
-      </button>
+    <header className="flex flex-col sm:flex-row justify-between items-center my-8 space-y-4 sm:space-y-0">
+      <h1 className="text-4xl font-bold text-gray-800 dark:text-white text-center sm:text-left">
+        Borgar Bordoy - Software Engineer & Elektriker
+      </h1>
+
+      {/* Dark mode toggle med pære og joke */}
+      <div className="flex items-center space-x-2">
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="text-yellow-500 dark:text-gray-400 text-3xl transition-transform duration-300 hover:scale-110"
+          aria-label="Toggle Dark Mode"
+        >
+          <FaLightbulb />
+        </button>
+        <span className="italic text-sm text-gray-600 dark:text-gray-300 hidden sm:inline">
+          Hvor mange softwareingeniører skal der til for at skifte en pære?{" "}
+          <strong>En. (hvis han også er elektriker!)</strong>
+        </span>
+      </div>
     </header>
   );
 }
