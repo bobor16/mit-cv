@@ -19,15 +19,13 @@ function Header() {
       </h1>
 
       {/* Dark mode toggle med pære og kontakt */}
-      <div className="flex flex-col sm:flex-row items-center space-x-4 sm:space-x-2">
+      <div className="flex sm:flex-row items-center space-x-2 sm:space-x-4">
         {/* Pære ikon */}
-        <div className="flex items-center space-x-2">
-          <FaLightbulb
-            className={`text-3xl transition-all duration-300 transform ${
-              darkMode ? "text-gray-400 scale-90" : "text-yellow-500 scale-110"
-            }`}
-          />
-        </div>
+        <FaLightbulb
+          className={`text-3xl transition-all duration-300 transform ${
+            darkMode ? "text-gray-400 scale-90" : "text-yellow-500 scale-110"
+          }`}
+        />
 
         {/* Kontakt (afbryder) */}
         <button
@@ -41,13 +39,13 @@ function Header() {
             }`}
           ></span>
         </button>
-
-        {/* Joke tekst */}
-        <span className="italic text-sm text-gray-600 dark:text-gray-300 sm:inline mt-2 sm:mt-0">
-          Hvor mange softwareingeniører skal der til for at skifte en pære?{" "}
-          <strong>En. (hvis han også er elektriker!)</strong>
-        </span>
       </div>
+
+      {/* Joke tekst */}
+      <span className="italic text-sm text-gray-600 dark:text-gray-300">
+        Hvor mange softwareingeniører skal der til for at skifte en pære?{" "}
+        <strong>En. (hvis han også er elektriker!)</strong>
+      </span>
     </header>
   );
 }
