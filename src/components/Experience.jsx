@@ -5,6 +5,7 @@ function Experience() {
         <ul className="list-disc ml-5 space-y-2">
           <li>Elektriker hos Svend Åge Nielsen (2024 - nu)</li>
           <li>Softwareprojekter: Udviklet spil og apps til assistiv teknologi</li>
+          <li>Student software developer hos Nemlia (nemlia.fo)</li>
           <li>Arbejdet offshore på borerigge og produktionsanlæg i Norge</li>
         </ul>
       </section>
