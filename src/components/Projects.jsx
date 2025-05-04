@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 
 function Projects() {
   const [openIndex, setOpenIndex] = useState(null);
   const contentRefs = useRef([]);
 
-  const projects = [
+  // Memoizing the projects array to avoid unnecessary re-renders
+  const projects = useMemo(() => [
     {
       title: "Klatringespil til datteren",
       description: "Et webbaseret spil der motiverer min datter med CP til at klatre ved hjælp af en ESP32 sensor og en kaninfigur på skærmen.",
@@ -20,7 +21,7 @@ function Projects() {
       description: "Mit personlige CV- og portfolio site bygget med React og Tailwind. Simpelt, men fleksibelt.",
       link: "#"
     },
-  ];
+  ], []); // Empty dependency array, meaning projects is memoized and won't change unless explicitly modified.
 
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -41,7 +42,7 @@ function Projects() {
         }
       }
     });
-  }, [openIndex, projects]);
+  }, [openIndex, projects]); // Dependencies updated to reflect projects and openIndex
 
   return (
     <section className="my-12 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +56,6 @@ function Projects() {
               hover:text-blue-500 hover:-translate-y-0.5"
           >
             {project.title}
-            {/* Roter +/− når åbent */}
             <span
               className={`text-xl transform transition-transform duration-300 ${
                 openIndex === index ? "rotate-45" : ""
