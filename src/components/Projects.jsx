@@ -25,7 +25,10 @@ function Projects() {
       title: "Portfolio website (du er her nu)",
       description: "Mit personlige CV- og portfolio site bygget med React og Tailwind. Simpelt, men fleksibelt.",
     },
-    
+    {
+      title: "Automatisering af billede navngivning",
+      description: "Et Python-script, der automatisk navngiver billeder efter dato og klokkeslæt, når de bliver gendannet. Scriptet opretter også mapper baseret på datoen for billederne, hvilket gør det lettere at organisere og finde billeder senere. Dette er især nyttigt gendannelse af billeder og filer fra et beskadet lagerkort, hvor billederne kan være blevet omdøbt eller mistet.",
+    },
   ], []);
 
   const openModal = (project) => {
