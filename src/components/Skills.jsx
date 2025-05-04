@@ -18,6 +18,8 @@ function Skills() {
           <span className="bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white px-3 py-1 rounded-full transform transition-all duration-300 ease-in-out hover:scale-105">SQL</span>
           <span className="bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white px-3 py-1 rounded-full transform transition-all duration-300 ease-in-out hover:scale-105">Cloud</span>
           <span className="bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white px-3 py-1 rounded-full transform transition-all duration-300 ease-in-out hover:scale-105">NoSQL</span>
+          <span className="bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white px-3 py-1 rounded-full transform transition-all duration-300 ease-in-out hover:scale-105">Android</span>
+          <span className="bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white px-3 py-1 rounded-full transform transition-all duration-300 ease-in-out hover:scale-105">iOS</span>
 
         </div>
       </section>

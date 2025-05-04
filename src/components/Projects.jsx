@@ -4,7 +4,6 @@ function Projects() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   
-  // Memoizing the projects array to avoid unnecessary re-renders
   const projects = useMemo(() => [
     {
       title: "IoT and Cathodic Protection in the Gas Industry: Adoption and Impact (Masters Thesis)",
@@ -15,7 +14,7 @@ function Projects() {
       description: "Udviklede en Proof of Concept for at genopbygge Totalview-platformen som en moderne cross-platform applikation i stedet for separate native apps til iOS og Android. Målet var at reducere vedligeholdelse og samle udviklingen i ét sprog og én kodebase, hvilket giver øget effektivitet og lavere omkostninger på sigt.",
     },
     {
-      title: "Klatringespil til datteren",
+      title: "Klatrespil til datteren",
       description: "Jeg udviklede et spil til min datters hjemmetræning, hvor hun skulle klatre på en ribbe. Hver gang hun nåede toppen, trykkede hun på en fysisk knap, der var forbundet til en ESP32-mikrocontroller. Når knappen blev trykket, sendte ESP32’en et signal via MQTT til en webapplikation, som vi kørte på en iPad foran ribben. På skærmen hoppede en lille kanin hver gang knappen blev trykket — som en visuel belønning — og samtidig blev en tæller øget med 1, så vi kunne holde styr på antallet af klatringer under træningen. Formålet var at gøre genoptræningen mere motiverende og legende ved hjælp af gamification, hvor fremgangen kunne ses direkte på skærmen. Derudover gemte systemet træningsdata, så vi kunne se statistik over hvor meget hun havde klatret over tid — fx dag for dag eller uge for uge — hvilket også gav motivation for både hende og os som forældre.",
     },
     {
@@ -27,7 +26,6 @@ function Projects() {
       description: "Mit personlige CV- og portfolio site bygget med React og Tailwind. Simpelt, men fleksibelt.",
     },
     
-    // Du kan tilføje flere projekter her
   ], []);
 
   const openModal = (project) => {
