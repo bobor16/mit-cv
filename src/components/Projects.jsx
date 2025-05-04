@@ -1,63 +1,84 @@
-import { FaGithub, FaLink } from "react-icons/fa";
+import { useState, useRef, useEffect } from "react";
 
 function Projects() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const contentRefs = useRef([]);
+
+  const projects = [
+    {
+      title: "Klatringespil til datteren",
+      description: "Et webbaseret spil der motiverer min datter med CP til at klatre ved hjælp af en ESP32 sensor og en kaninfigur på skærmen.",
+      link: "#"
+    },
+    {
+      title: "Ruteoptimering for udskiftning af elmålere",
+      description: "Jeg udviklede et Python-script, der anvendte nearest neighbor-algoritmen til at beregne den hurtigste rute mellem de 250 adresser, der skulle besøges. Ved hjælp af Leaflet, et populært JavaScript-bibliotek til kort, visualiserede jeg både adresserne og ruten på et interaktivt kort, hvilket gav et klart og letforståeligt billede af hele ruten.  ",
+      link: "#"
+    },
+    {
+      title: "Portfolio website (du er her nu)",
+      description: "Mit personlige CV- og portfolio site bygget med React og Tailwind. Simpelt, men fleksibelt.",
+      link: "#"
+    },
+  ];
+
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  useEffect(() => {
+    projects.forEach((_, index) => {
+      const el = contentRefs.current[index];
+      if (el) {
+        if (openIndex === index) {
+          el.style.height = el.scrollHeight + "px";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0px)";
+        } else {
+          el.style.height = "0px";
+          el.style.opacity = "0";
+          el.style.transform = "translateY(-10px)";
+        }
+      }
+    });
+  }, [openIndex, projects]);
+
   return (
-    <section className="my-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow">
-      <h2 className="text-2xl dark:text-white font-semibold mb-2">Projekter</h2>
-      <div className="space-y-6">
-        {/* Projekt 1 */}
-        <div className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow">
-          <h3 className="text-xl font-semibold dark:text-white">Assistiv Climbing Game</h3>
-          <p className="text-gray-800 dark:text-gray-200">
-            Et interaktivt klatrespil udviklet til børn med cerebral parese. Spillet bruger en ESP32-sensor og MQTT til at registrere klatringer og visualisere fremskridt via en kaninfigur på skærmen.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/bobor16/SA-Motivation-Game" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaGithub size={20} />
-              GitHub
-            </a>
-            <button className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaLink size={20} />
-              Demo
-            </button>
-          </div>
-        </div>
+    <section className="my-12 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Projekter</h2>
+      {projects.map((project, index) => (
+        <div key={index} className="border-b border-gray-300 dark:border-gray-600 mb-4">
+          <button
+            onClick={() => toggle(index)}
+            className="w-full flex justify-between items-center py-4 text-left text-lg font-medium text-gray-700 dark:text-gray-200 focus:outline-none
+              transition duration-300 ease-in-out 
+              hover:text-blue-500 hover:-translate-y-0.5"
+          >
+            {project.title}
+            {/* Roter +/− når åbent */}
+            <span
+              className={`text-xl transform transition-transform duration-300 ${
+                openIndex === index ? "rotate-45" : ""
+              }`}
+            >
+              +
+            </span>
+          </button>
 
-        {/* Projekt 2 */}
-        <div className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow">
-          <h3 className="text-xl font-semibold dark:text-white">Ruteoptimering for udskiftning af elmålere</h3>
-          <p className="text-gray-800 dark:text-gray-200">
-          Jeg udviklede et Python-script, der anvendte nearest neighbor-algoritmen til at beregne den hurtigste rute mellem de 250 adresser, der skulle besøges. Ved hjælp af Leaflet, et populært JavaScript-bibliotek til kort, visualiserede jeg både adresserne og ruten på et interaktivt kort, hvilket gav et klart og letforståeligt billede af hele ruten.          </p>
-          <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/bobor16/route-optimation" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaGithub size={20} />
-              GitHub
-            </a>
-            <button className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaLink size={20} />
-              Demo
-            </button>
+          <div
+            ref={(el) => (contentRefs.current[index] = el)}
+            className="overflow-hidden transition-all duration-500 ease-in-out"
+            style={{ height: "0px", opacity: 0, transform: "translateY(-10px)" }}
+          >
+            <div className="pb-4 pt-2 text-gray-600 dark:text-gray-300 transition-opacity duration-500">
+              <p>{project.description}</p>
+              <a href={project.link} className="text-blue-500 hover:underline mt-2 inline-block">
+                Læs mere
+              </a>
+            </div>
           </div>
         </div>
-
-        {/* Projekt 3 */}
-        <div className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow">
-          <h3 className="text-xl font-semibold dark:text-white">Dynamisk CV-website</h3>
-          <p className="text-gray-800 dark:text-gray-200">
-            Mit personlige CV og portfolio bygget som en moderne, responsiv webapp med dark/light mode, Tailwind CSS og React.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/bobor16/mit-cv" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaGithub size={20} />
-              GitHub
-            </a>
-            <button className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
-              <FaLink size={20} />
-              Demo
-            </button>
-          </div>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }

@@ -16,7 +16,7 @@ function Header() {
     <header className="flex flex-col items-center my-8 space-y-6 sm:space-y-8 px-4">
       {/* Titel */}
       <h1 className="w-full max-w-2xl text-4xl font-bold text-gray-800 dark:text-white text-center mx-auto">
-        Borgar Bordoy - Software Engineer & Elektriker
+        Borgar Bordoy - Softwareingeniør & Elektriker
       </h1>
 
       {/* Pære + kontakt */}
