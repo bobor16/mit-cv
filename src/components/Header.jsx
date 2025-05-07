@@ -1,17 +1,6 @@
-import { useState, useEffect } from "react";
 import { FaLightbulb } from "react-icons/fa";
 
-function Header() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
+function Header({ darkMode, setDarkMode }) {
   return (
     <header className="flex flex-col items-center my-8 space-y-6 sm:space-y-8 px-4">
       {/* Titel */}
